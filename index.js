@@ -18,7 +18,7 @@ let workItems = [];
 
 app.get("/", function(req, res){
 
- let date = new Date("02/15/1992");
+ let date = new Date();
 
  const options = {
    weekday: "long",
@@ -64,84 +64,3 @@ app.listen(3000, function(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// var items =[];
-// var workItems=[];
-
-// app.get("/", function(req,res){
-// var today = new Date();
-
-// // var currentDay= today.getDay();
-// // var day = "";
-// var options = {
-//   weekday: "long",
-//   day: "numeric",
-//   month: "long"
-// };
-
-// var day = today.toLocaleDateString("en-US", options);
-
-// res.render("list",{listTitle: day, newListItem:items});
-// });
-
-
-
-// app.post("/", function(req,res){
-//   console.log(req.body);
-//   if(req.body.list ==="Work"){
-//     workItems.push(req.body.newItem);
-//     res.redirect("/work");
-//   }
-//   else{
-//     items.push(req.body.newItem);
-//     res.redirect("/");
-//   }
-// });
-
-// app.get("/work", function(req,res){
-//   res.render("list", {listTitle:"Work List", newListItem:workItems});
-// });
-
-// //This method does not work because there is no /work route set up in .ejs file
-// //app.post("/work", function(req,res){
-// //   workItems.push(req.body.newItem);
-// //   res.redirect("/work");
-// // });
-
-// app.listen(3000, function(){
-//   console.log("Server running on port 3000");
-// });
