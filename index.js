@@ -13,29 +13,46 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static("public"));
 
 let newItems = [];
+let workItems = [];
 
 
 app.get("/", function(req, res){
 
- let date = new Date();
+ let date = new Date("02/15/1992");
 
  const options = {
    weekday: "long",
    month: "long",
    day: "numeric"
  }
- today = date.toLocaleString("en-US", options);
+ let today = date.toLocaleString("en-US", options);
 
- res.render("list", {day: today, item:newItems});
+ res.render("list", {listType: today, item:newItems});
 
 });
+
+app.get("/work", function(req,res){
+
+res.render("list", {listType: "Work List", item: workItems});
+
+})
 
 app.post("/", function(req,res){
-  newItems.push(req.body.newItem);
+ 
+  if(req.body.list ==="Work"){
+    workItems.push(req.body.newItem);
+    res.redirect("/work");
+  }
+    else{
+      newItems.push(req.body.newItem);
+      res.redirect("/");
 
-  res.redirect("/");
+    }
 
-});
+  });
+
+  
+
 
 
 
